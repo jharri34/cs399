@@ -1,0 +1,43 @@
+
+#Sexadecimal Three-Address Computer (SEXATAC)[]
+
+Simulating the machinery of the instruction cycle of a three-address computer, and uses **SOS storage**,
+locations to model the instruction register, instruction counter, index registers, and **core**.
+
+### 1. Core Configuration:
+
+256 32-bit words, addressed 00-FF, with each word location having full general register capabilities
+
+3 additional 32 bit index registers are used to index the A,B and C addresses
+
+**Wraparound capability** - instruction addresses wrap in the negative, as well as positive,
+direction.
+
+### 2. Instruction Format
+<table>
+    <tr>
+        <td>op code & index</td>
+        <td>address A</td>
+        <td>address B</td>
+        <td>address C</td>
+    </tr>
+    <tr>
+      <td>
+        <table><tr><td>0 </td><td>1</td></tr></table>
+    </td>
+    <td>
+            <table><tr><td>2 </td><td>3</td></tr></table>
+    </td>
+    <td>
+            <table><tr><td>4 </td><td>5</td></tr></table>
+    </td>
+    <td>
+            <table><tr><td>6 </td><td>7</td></tr></table>
+    </td>
+  </tr>
+</table>
+[operation code & index][Address A ][Address B][Address C]
+op-code consist of the left most 5 binary bits of the instruction; they are written as two hexadecimal
+digits, the second of which i always zero or **eight**. The last three bit of the 8 bit opcode-and-index
+field indicate whether to ignore or use the index registers A,B,and C; the opcode for add with A and C
+addresses indexed is 15. (10 for add +5 index selection )
