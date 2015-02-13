@@ -3,15 +3,18 @@
 // Last Modified: 21 December 2014
 // Purpose: provide memory for TACh
 
+
 import java.util.*;
 import java.util.concurrent.*;
 import java.awt.Color;
+
+package hexATAC;
 
 public class TAChMemory implements Runnable
 {
     private int[] words;
     private boolean dirty;
-    private Draw tube;    
+    private Draw tube;
     private int bitMapCols = 64;
     private int bitMapRows = 256*32/bitMapCols;
 
@@ -19,11 +22,11 @@ public class TAChMemory implements Runnable
     private double bitMapTop        =  0.5;
     private double bitMapStepRight  =  1.0 / bitMapCols;
     private double bitMapStepDown   = -0.5 / bitMapRows;
-   
+
     private Color backgroundColor;
     private Color oneColor;
     private Color zeroColor;
-    
+
     // repaint entire memory
     private void refresh()
     {
@@ -45,7 +48,7 @@ public class TAChMemory implements Runnable
 			tube.pixel(sX,sY);
 		    }
 	    }
-	tube.show();	
+	tube.show();
     }
 
     private synchronized void setDirty(boolean dirty)
@@ -67,7 +70,7 @@ public class TAChMemory implements Runnable
 
     private String sexString(int x, int n)
     {
-	String[] digits 
+	String[] digits
 	    = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
 	int rest = x;
 	String result = "";
