@@ -8,7 +8,6 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.awt.Color;
 
-package hexATAC;
 
 public class TAChMemory implements Runnable
 {
